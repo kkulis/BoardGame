@@ -8,6 +8,7 @@ public:
 	Board();
 	void positionCheck(Player* p);
 private:
+	int trapFile();
 	int trap1();
 	int trap2();
 	int trap3();

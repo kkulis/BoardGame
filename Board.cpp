@@ -1,5 +1,7 @@
 #include "Board.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -36,7 +38,7 @@ void Board::positionCheck(Player* p)
 		p->movePlayer(trap2());
 		break;
 	case 37:
-		p->movePlayer(trap4());
+		p->movePlayer(trapFile());
 		break;
 	case 41:
 		p->movePlayer(trap3());
@@ -77,7 +79,26 @@ int Board::trap4()
 	return -4;
 }
 
+int Board::trapFile()
+{
+	string line;
+	int num;
+	ifstream traps;
+	traps.open("traps.txt", ifstream::out);
+	
+	traps >> num;
+	getline(traps, line);
+	cout << line << endl;
+	
+	return num;
+}
+	
+
+
+	
+
 
 Board::~Board()
 {
+	
 }
